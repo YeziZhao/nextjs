@@ -2,6 +2,8 @@ name: Node.js Package
 
 on:
   workflow_dispatch:
+env:
+  DAY_OF_WEEK: DAY_OF_WEEK_Monday # 顶层变量
 
 jobs:
   build:
@@ -11,7 +13,13 @@ jobs:
       run: echo 'befrore'
     - name: test_if
       if: ${{ 'failure' == 'failure' }}
-      run: echo "hello, $CUSTOM_ENV_VAR"
+      run: |
+        echo " Today is $DAY_OF_WEEK!"
+        echo "here is: $test_if_var"
+        echo "$First_Name $MY_ENV_VAR"
+      env: 
+        test_if_var: I'M TEST ENV VAR
     env:
-      CUSTOM_ENV_VAR: 'zhaoyehogn'
+      First_Name: Mona
       MY_ENV_VAR: ${{ github.ref == 'refs/heads/main' && 'value_for_main_branch' || 'value_for_other_branches' }}
+      
