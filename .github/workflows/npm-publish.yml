@@ -10,6 +10,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: The demo step has failed
-      if: ${{ failure() && steps.demo.conclusion == 'failure' }}
+    - name: test_echo
+      run: echo 'befrore'
+    - name: test_if
+      if: ${{ 'n' == 'failure' }}
       run: echo 'success'
