@@ -1,7 +1,10 @@
 name: Node.js Package
 
 on:
-  workflow_dispatch:
+  pull_request:
+    branches:    
+      - main
+      - 'releases/*'
 env:
   DAY_OF_WEEK: DAY_OF_WEEK_Monday # 顶层变量
 
