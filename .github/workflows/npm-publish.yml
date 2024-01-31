@@ -12,3 +12,4 @@ jobs:
     steps:
     - name: The demo step has failed
       if: ${{ failure() && steps.demo.conclusion == 'failure' }}
+      run: echo 'success'
