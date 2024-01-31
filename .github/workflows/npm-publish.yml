@@ -11,7 +11,7 @@ jobs:
       run: echo 'befrore'
     - name: test_if
       if: ${{ 'failure' == 'failure' }}
-      run: echo 'hello, ${{$env.CUSTOM_ENV_VAR}}'
+      run: echo 'hello, ${{CUSTOM_ENV_VAR}}'
     env:
       CUSTOM_ENV_VAR: 'zhaoyehogn'
       MY_ENV_VAR: ${{ github.ref == 'refs/heads/main' && 'value_for_main_branch' || 'value_for_other_branches' }}
