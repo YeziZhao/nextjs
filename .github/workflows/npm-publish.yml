@@ -19,7 +19,4 @@ jobs:
           echo 123 > $FILENAME
           echo "::set-output name=$FILENAME"
         id: write
-      
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "add ${{ steps.write.outputs.name }}"
+
