@@ -3,19 +3,14 @@ name: Greeting on variable day
 on:
   workflow_dispatch
 
-env:
-  DAY_OF_WEEK: Monday
-
 jobs:
   greeting_job:
     runs-on: ubuntu-latest
-    env:
-      Greeting: Hello
     
     steps:
       - uses: actions/checkout@v2
       - run: |
-          `a=b` >> "$GITHUB_ENV"
-          echo $a
+          echo "action_state=yellow" >> "$GITHUB_ENV"
+          echo $action_state
         id: write
 
