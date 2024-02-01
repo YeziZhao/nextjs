@@ -15,10 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          FILENAME=`date  +"%y%m%d%H%M%S"`.txt
-          testtype=`npm version ${{github.event.inputs.versionType}}`
-          echo 123 > $FILENAME
-          echo "::set-output name=$FILENAME"
+          testtype=`npm version patch`
           echo "::set-output name=$testtype"
         id: write
 
