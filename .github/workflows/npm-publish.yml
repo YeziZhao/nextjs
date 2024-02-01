@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          `a=${npm version patch}` >> "$GITHUB_ENV"
+          `a=b` >> "$GITHUB_ENV"
           echo $a
         id: write
 
