@@ -1,28 +1,46 @@
-name: Node.js Package
+# name: Node.js Package
+
+# on:
+#   pull_request:
+#     branches:    
+#       - main
+#       - 'releases/*'
+# env:
+#   DAY_OF_WEEK: DAY_OF_WEEK_Monday # 顶层变量
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: test_echo
+#       run: echo 'befrore'
+#     - name: test_if
+#       if: ${{ env.DAY_OF_WEEK == 'DAY_OF_WEEK_Monday' }}
+#       run: |
+#         echo " Today is $DAY_OF_WEEK!"
+#         echo "here is: $test_if_var"
+#         echo "$First_Name $MY_ENV_VAR"
+#       env: 
+#         test_if_var: I'M TEST ENV VAR
+#     env:
+#       First_Name: Mona
+#       MY_ENV_VAR: ${{ github.ref == 'refs/heads/main' && 'value_for_main_branch' || 'value_for_other_branches' }}
+      
+name: Greeting on variable day
 
 on:
-  pull_request:
-    branches:    
-      - main
-      - 'releases/*'
+  workflow_dispatch
+
 env:
-  DAY_OF_WEEK: DAY_OF_WEEK_Monday # 顶层变量
+  DAY_OF_WEEK: Monday
 
 jobs:
-  build:
+  greeting_job:
     runs-on: ubuntu-latest
-    steps:
-    - name: test_echo
-      run: echo 'befrore'
-    - name: test_if
-      if: ${{ env.DAY_OF_WEEK == 'DAY_OF_WEEK_Monday' }}
-      run: |
-        echo " Today is $DAY_OF_WEEK!"
-        echo "here is: $test_if_var"
-        echo "$First_Name $MY_ENV_VAR"
-      env: 
-        test_if_var: I'M TEST ENV VAR
     env:
-      First_Name: Mona
-      MY_ENV_VAR: ${{ github.ref == 'refs/heads/main' && 'value_for_main_branch' || 'value_for_other_branches' }}
-      
+      Greeting: Hello
+    steps:
+      - name: "Say Hello Mona it's Monday"
+        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+        env:
+          First_Name: Mona
