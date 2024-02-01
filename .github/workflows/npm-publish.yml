@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          testtype=`npm version patch`
-          echo "::set-output name=$testtype"
+          `a=${npm version patch}` >> "$GITHUB_ENV"
+          echo $a
         id: write
 
