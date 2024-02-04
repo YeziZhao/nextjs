@@ -4,6 +4,7 @@
 name: Greeting on variable day later run
 
 on:
+  workflow_dispatch:
   workflow_run:
     workflows: [Greeting on variable day]
     types:
